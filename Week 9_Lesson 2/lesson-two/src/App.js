@@ -1,14 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import NewButton from './components/NewButton';
-import NewImage from './components/NewImage';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <NewImage src={logo} alt="logo"/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -20,9 +17,6 @@ function App() {
         >
           Learn React
         </a>
-       <NewButton name="ao"/>
-       <NewButton name="tutto"/>
-       <NewButton name="bene"/>
       </header>
     </div>
   );
