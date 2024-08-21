@@ -13,7 +13,7 @@ function App() {
         <CustomNavbar />
       </header>
 
-      <main className="py-3">
+      <main className="py-3 ">
         <AllTheBooks />
       </main>
 

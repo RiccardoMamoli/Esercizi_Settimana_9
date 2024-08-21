@@ -2,6 +2,7 @@ import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import fantasy from '../data/fantasy.json'
 
 
+
 function AllTheBooks() {
     return (
         <>
@@ -13,7 +14,7 @@ function AllTheBooks() {
                                 <>
                                     <Col sm={12} lg={3} xl={2}>
                                         <Card>
-                                            <div>
+                                            <div className='img-box'>
                                                 <img src={book.img} alt="book-cover" className='img-fluid' />
                                             </div>
                                             <Card.Body>
@@ -25,7 +26,6 @@ function AllTheBooks() {
                                             </Card.Body>
                                         </Card>
                                     </Col>
-
                                 </>
                             )
                         })
