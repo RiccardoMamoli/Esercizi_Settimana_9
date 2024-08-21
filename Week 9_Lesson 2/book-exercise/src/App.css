@@ -31,3 +31,7 @@
 .card-body {
   height: 300px !important;
 }
+
+.border-red {
+  border: 3px solid red !important;
+}
