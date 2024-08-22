@@ -62,25 +62,24 @@ class BookingList extends Component {
                                     this.state.isLoading && <Spinner animation="border" role="status">
                                         <span className="visually-hidden">Loading...</span>
                                     </Spinner>
-
                                 }
-
                                 {
                                     this.state.isError && <Alert className="bg-danger text-light"> Something went wrong!</Alert>
 
                                 }
 
-
                             </div>
                             <ListGroup>
-                                {
-                                    this.state.reservations.map((res) => {
+                                {!this.state.isLoading && this.state.reservations.length === 0 ?
+                                    (<ListGroup.Item> Al momento non ci sono prenotazioni </ListGroup.Item>) :
+
+                                    (this.state.reservations.map((res) => {
                                         return (
                                             <ListGroup.Item key={res._id}>
                                                 {res.name} per {res.numberOfPeople}
                                             </ListGroup.Item>
                                         )
-                                    })
+                                    }))
                                 }
                             </ListGroup>
                         </Col>

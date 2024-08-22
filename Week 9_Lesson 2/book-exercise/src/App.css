@@ -35,3 +35,8 @@
 .border-red {
   border: 3px solid red !important;
 }
+
+.commentArea {
+  height: 200px;
+  overflow: auto;
+}
