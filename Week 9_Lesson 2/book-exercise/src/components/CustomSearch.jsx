@@ -22,6 +22,12 @@ class CustomSearch extends Component {
                                 type="text"
                                 placeholder="Search"
                                 className=" mr-sm-2"
+                                value={this.state.search}
+                                onChange={(e) => {
+                                    this.setState({
+                                        search: e.target.value
+                                    })
+                                }}
                             />
                         </Col>
                         <Col xs="auto">

@@ -40,21 +40,41 @@ class TableBooking extends Component {
     }
 
     handleSubmit = (e) => {
-        e.preventDefault();
-        fetch('https://www.striveschool-api.herokuapp.com/api/reservation', {
+        e.preventDefault()
+        // ora inviamo i dati alle API di EPICODE per salvare la prenotazione
+        // inviamo i dati tramite una chiamata con metodo 'POST'
+        fetch('https://striveschool-api.herokuapp.com/api/reservation', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
-            }
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(this.state.reservation),
         })
-        .then((response) => {
-            if (response.ok) {
-                console.log('ok')
-            } else {
-                throw new error
-            }
-        })
-        .catch()
+            .then((response) => {
+                if (response.ok) {
+                    console.log('prenotazione salvata')
+                    alert('grazie!')
+                    // dobbiamo svuotare i campi!
+                    // per farlo resettiamo lo stato, così i campi si svuoteranno da soli
+                    this.setState({
+                        reservation: {
+                            // lo stato iniziale del componente
+                            name: '',
+                            phone: '',
+                            numberOfPeople: '1',
+                            smoking: false,
+                            dateTime: '',
+                            specialRequests: '',
+                        },
+                    })
+                } else {
+                    alert('riprova più tardi')
+                    throw new Error('errore!')
+                }
+            })
+            .catch((err) => {
+                alert(err)
+            })
     }
 
     render() {
@@ -69,7 +89,7 @@ class TableBooking extends Component {
                                 <Form.Group className="mb-3">
                                     <Form.Label> Nome </Form.Label>
                                     <Form.Control
-                                        type="email"
+                                        type="text"
                                         placeholder="Inserisci il tuo nome"
                                         required
                                         onChange={(e) => {
