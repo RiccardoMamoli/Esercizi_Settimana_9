@@ -10,10 +10,23 @@ class AddComment extends Component {
         }
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault()
+        fetch('https://striveschool-api.herokuapp.com/api/comments/', {
+            method: 'POST',
+            headers: {
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEzNmEyY2YyNjBjYzAwMTVjYzBlMGIiLCJpYXQiOjE3MjQzMzUwMTcsImV4cCI6MTcyNTU0NDYxN30.h7KNYUqKjaAgf-TwgBihaqgCLDamwaIk2EaMrD5b5I8",
+                "Content-Type": 'application/json',
+            },
+            body: JSON.stringify
+        })
+
+    }
+
     render() {
         return (
             <>
-                <Form>
+                <Form onSubmit={this.handleSubmit()}>
                     <Form.Select
                         value={this.state.review.rate}
                         onChange={(e) => {
